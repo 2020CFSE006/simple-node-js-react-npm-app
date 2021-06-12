@@ -7,12 +7,12 @@ pipeline {
     stage('Build') {
       steps {
         bat 'npm install'
-        bat 'npm build'
+        bat 'set CI=true&&npm run build'
       }
     }
     stage('Test') {
       steps {
-        bat 'CI=true npm test'
+        bat 'set CI=true&&npm test'
       }
     }
 
