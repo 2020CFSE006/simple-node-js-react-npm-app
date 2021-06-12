@@ -12,7 +12,7 @@ pipeline {
     }
     stage('Test') {
       steps {
-        powershell '($env:CI = "true") -and (npm test)'
+         powershell returnStdout: true, script: '($env:CI = "true") -and (npm test)'
       }
     }
 
