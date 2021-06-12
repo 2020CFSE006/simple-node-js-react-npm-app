@@ -1,10 +1,14 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('Build') {
       steps {
-        bat(script: 'Build', returnStatus: true, label: 'Build')
-        bat(script: 'Test', label: 'Test')
+        bat 'npm install' 
+      }
+    }
+    stage('Test') {
+      steps {
+        bat 'npm test' 
       }
     }
 
