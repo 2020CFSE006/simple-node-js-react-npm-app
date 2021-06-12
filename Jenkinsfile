@@ -12,7 +12,7 @@ pipeline {
     }
     stage('Test') {
       steps {
-        ps './jenkins/scripts/test.ps1'
+        powershell '($env:CI = "true") -and (npm test)'
       }
     }
 
